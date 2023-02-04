@@ -37,13 +37,15 @@ app.use('/api/book', postRoute)
 const port = process.env.PORT || 8000;
 
 // Connect to MongoDB
-mongoose.connect(process.env.mongo_url, (err) => {
-  if (err) {
-    console.log(err.message)
-  } else {
-    console.log('db connected')
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.mongo_url);
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
   }
-});
+}
 
 
 
@@ -65,8 +67,10 @@ mongoose.connect(process.env.mongo_url, (err) => {
 // });
 
 // Start the express server and listen on the specified port
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
+connectDB().then(() => {
+  app.listen(port, () => {
+      console.log("listening for requests");
+  })
+})
 
 
