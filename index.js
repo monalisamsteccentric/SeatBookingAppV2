@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from 'cors'
+import path from 'path'
 import getRoute from "./routes/getRoute.js"
 import postRoute from "./routes/postRoute.js"
 // import Seat from "./models/SeatModel.js";
