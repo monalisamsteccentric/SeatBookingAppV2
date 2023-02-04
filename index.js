@@ -1,12 +1,16 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from 'cors'
+import mongo_url from "./config.js";
 import getRoute from "./routes/getRoute.js"
 import postRoute from "./routes/postRoute.js"
 // import Seat from "./models/SeatModel.js";
 
 const currentModuleUrl = new URL(import.meta.url);
 const currentModulePath = currentModuleUrl.pathname;
+
+// Initialize express
+const app = express();
 
 app.use(express.static(path.join(currentModulePath, './client/build')));
 
@@ -18,8 +22,7 @@ app.get('*', (req, res) => {
 // Set the strict query to false to avoid any errors
 mongoose.set('strictQuery', false)
 
-// Initialize express
-const app = express();
+
 
 // Use JSON format for requests and responses
 app.use(express.json());
