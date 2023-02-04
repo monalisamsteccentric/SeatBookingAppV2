@@ -32,7 +32,7 @@ app.use('/api/seats', getRoute)
 app.use('/api/book', postRoute)
 
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 
 // Connect to MongoDB
 mongoose.connect(process.env.mongo_url, (err) => {
