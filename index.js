@@ -69,7 +69,7 @@ const connectDB = async () => {
 // Start the express server and listen on the specified port
 connectDB().then(() => {
   app.listen(port, () => {
-      console.log("listening for requests");
+      console.log(`listening for requests ${port}`);
   })
 })
 
