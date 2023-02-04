@@ -12,10 +12,10 @@ const currentModulePath = currentModuleUrl.pathname;
 // Initialize express
 const app = express();
 
-app.use(express.static(path.join(currentModulePath, './client/build')));
+app.use(express.static(path.join(currentModulePath, '../client/build')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(currentModulePath, './client/build/index.html'));
+  res.sendFile(path.join(currentModulePath, '../client/build/index.html'));
 });
 
 
