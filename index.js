@@ -34,7 +34,7 @@ app.use('/api/seats', getRoute)
 app.use('/api/book', postRoute)
 
 
-const port = process.env.PORT || 8000;
+
 
 // Connect to MongoDB
 const connectDB = async () => {
@@ -68,8 +68,8 @@ const connectDB = async () => {
 
 // Start the express server and listen on the specified port
 connectDB().then(() => {
-  app.listen(port, () => {
-      console.log(`listening for requests ${port}`);
+  app.listen(process.env.PORT, () => {
+      console.log(`listening for requests ${process.env.PORT}`);
   })
 })
 
